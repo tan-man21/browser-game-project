@@ -7,6 +7,13 @@ let board = []
 window.onload = async () => {
     setUpGame()
 }
+function selectPlayer(){
+    let gameBoard = document.getElementById('board')
+    let startContainer = document.getElementById('start_container')
+    gameBoard.style.opacity = 1
+    startContainer.remove()
+
+}
 
 function setUpGame() {
     for(let i = 0; i < rows; i++){
