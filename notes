@@ -1,0 +1,23 @@
+CONNECT FOUR NEEDS:
+
+External Graphic Needs
+--------------
+1. Need black image circle
+2. Need red image circle
+3. Need background image
+4. Need rectangle board with circle cut outs 7x6
+
+Logic Needs
+-----------
+1. Each spot on board needs to have a determined position, the posistions should correspond to columns
+-Use mouse hover to show the determined outcome position 
+-Game should recognize which positions are already being used and then stack accordingly
+--- NEED TO LEARN 2D collision for this I think?
+2. Player turn needs to be determined and displayed on the screen via text content and color of circle
+-Once clicked
+3. Need logic to determine a winner with sets of winning position coordinates
+-Need a list of all possible winning outcome positions
+--- ??? How should I do this??? 
+4. Make a table within HTML that corresponds to slots?
+5. Need a restart button that removes all peices on the board
+6. Keep track of score under player scores

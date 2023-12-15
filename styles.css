@@ -1,0 +1,16 @@
+h1{
+    margin: auto;
+    color: red;
+    text-align: center;
+}
+
+#board{
+    height: 540px;
+    width: 630px;
+    background-color: rgb(56, 123, 205);
+    position: relative;
+    top: 150px;
+    margin: auto;
+    border: 15px solid rgb(33, 51, 138);
+    border-radius: 5px;
+}
