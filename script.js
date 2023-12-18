@@ -9,15 +9,17 @@ let board;
 let gameOver = false;
 
 
-window.onload = async () => {
-    setUpGame()
-}
+// window.onload = async () => {
+//     setUpGame()
+// }
 async function selectPlayer(){
     let gameBoard = document.getElementById('board')
     let startContainer = document.getElementById('start_container')
     gameBoard.style.opacity = 1
     await getCurrentPlayer()
-    startContainer.remove()
+    console.log(currentPlayer)
+    await startContainer.remove()
+    setUpGame()
 }
 
 function setUpGame() {
@@ -35,7 +37,6 @@ function setUpGame() {
         }
         board.push(row);
     }
-    console.log(board)
 }
 
 //get current player
@@ -62,5 +63,11 @@ function playerTurn(){
     let r = parseInt(coords[0]);
     let c = parseInt(coords[1]);
 
-    console.log(r + ',' + c)
+    board[r][c] = currentPlayer;
+    let slot = this;
+    if(currentPlayer === playerBlack){
+        slot.classList.add('black-piece')
+    } else{
+        slot.classList.add('red-piece')
+    }
 }
