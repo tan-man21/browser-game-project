@@ -1,5 +1,5 @@
 body{
-    background-color: rgb(173, 206, 173);
+    background-color: rgb(70, 71, 72);
     font-family: 'Poppins', sans-serif;
 }
 /* trianlges */
@@ -21,21 +21,21 @@ body{
 /* title */
 h1{
     margin: auto;
-    color: rgb(46, 84, 64);
+    color: rgb(219, 221, 220);
     text-align: center;
 }
 /* board */
 #board{
     height: 540px;
     width: 630px;
-    background-color: rgb(51, 95, 81);
+    background-color: rgb(37, 39, 39);
     position: relative;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
     top: 8px;
     margin: auto;
-    border: 15px solid rgb(30, 57, 53);
+    border: 15px solid rgb(3, 3, 3);
     border-radius: 5px;
     opacity: .5;
 }
@@ -68,8 +68,8 @@ h3{
 #redPlayer{
     accent-color: rgb(197, 93, 93);
 }
-#blackPlayer{
-    accent-color: rgb(34, 32, 32);
+#yellowPlayer{
+    accent-color: rgb(220, 230, 104);
 }
 #button_container{
     display: flex;
@@ -98,14 +98,14 @@ h3{
     border-radius: 50%;
     display: flex;
     flex-wrap: wrap;
-    background-color: rgb(173, 206, 173);
-    border: 3px solid rgb(43, 68, 43);
+    background-color: rgb(70, 71, 72);
+    border: 3px solid rgb(3, 3, 3);
 }
 
 /* player pieces */
 .red-piece{
     background-color: rgb(197, 93, 93);
 }
-.black-piece{
-    background-color: rgb(34, 32, 32);
+.yellow-piece{
+    background-color: rgb(220, 230, 104);
 }

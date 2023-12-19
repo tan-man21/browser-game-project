@@ -2,7 +2,7 @@
 let rows = 6;
 let columns = 7;
 let playerRed = 'R';
-let playerBlack = 'B';
+let playerYellow = 'Y';
 let currentPlayer = getCurrentPlayer();
 let currentColumns;
 
@@ -27,6 +27,7 @@ async function selectPlayer(){
 
 function setUpGame() {
     board = []
+    currentColumns = [5, 5, 5, 5, 5, 5]
     for(let r = 0; r < rows; r++){
         let row = [];
         for(let c = 0; c < columns; c++){
@@ -50,8 +51,8 @@ function getCurrentPlayer() {
         if (ele[i].checked) {
             if(ele[i].value === 'redPlayer'){
                 currentPlayer = playerRed
-            } else if(ele[i].value === 'blackPlayer'){
-                currentPlayer = playerBlack
+            } else if(ele[i].value === 'yellowPlayer'){
+                currentPlayer = playerYellow
             }
         }
     }
@@ -66,19 +67,22 @@ function playerTurn(){
     let r = parseInt(coords[0]);
     let c = parseInt(coords[1]);
 
+    r = currentColumns[c]
+    console.log(r)
+
     board[r][c] = currentPlayer;
     let slot = document.getElementById(r.toString() + '-' + c.toString());
-    if(currentPlayer === playerBlack){
-        slot.classList.add('black-piece')
+    if(currentPlayer === playerYellow){
+        slot.classList.add('yellow-piece')
         return currentPlayer = playerRed
     } 
     if(currentPlayer === playerRed){
         slot.classList.add('red-piece')
-        return currentPlayer = playerBlack
+        return currentPlayer = playerYellow
     }
+
     // checkWinner()
 }
-
 //Checking for winner function
 // function checkWinner(){
 
