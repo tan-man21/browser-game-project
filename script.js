@@ -4,6 +4,7 @@ let columns = 7;
 let playerRed = 'R';
 let playerBlack = 'B';
 let currentPlayer = getCurrentPlayer();
+let currentColumns;
 
 let board;
 let gameOver = false;
@@ -15,10 +16,12 @@ let gameOver = false;
 async function selectPlayer(){
     let gameBoard = document.getElementById('board')
     let startContainer = document.getElementById('start_container')
+    let title = document.getElementById('title')
     gameBoard.style.opacity = 1
     await getCurrentPlayer()
     console.log(currentPlayer)
     await startContainer.remove()
+    await title.remove()
     setUpGame()
 }
 
@@ -53,7 +56,7 @@ function getCurrentPlayer() {
         }
     }
 }
-
+//Iterating through each turn until winner is found
 function playerTurn(){
     if(gameOver){
         return;
@@ -64,10 +67,19 @@ function playerTurn(){
     let c = parseInt(coords[1]);
 
     board[r][c] = currentPlayer;
-    let slot = this;
+    let slot = document.getElementById(r.toString() + '-' + c.toString());
     if(currentPlayer === playerBlack){
         slot.classList.add('black-piece')
-    } else{
+        return currentPlayer = playerRed
+    } 
+    if(currentPlayer === playerRed){
         slot.classList.add('red-piece')
+        return currentPlayer = playerBlack
     }
+    // checkWinner()
 }
+
+//Checking for winner function
+// function checkWinner(){
+
+// }
