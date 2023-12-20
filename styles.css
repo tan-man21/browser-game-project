@@ -1,28 +1,39 @@
 body{
     background-color: rgb(70, 71, 72);
     font-family: 'Poppins', sans-serif;
-}
-/* trianlges */
-#triangle_container{
-    width: 630px;
-    display: flex;
-    margin: auto;
-}
-.w3r-triangle{
-    width: 0;
-    height: 0;
-    border-top: 15px solid rgb(82, 121, 195);
-    border-left: 15px solid transparent;
-    border-right: 15px solid transparent;
-    margin-left: 25px;
-    margin-right: 35px;
-    visibility: hidden;
+    padding: 8px;
 }
 /* title */
 h1{
     margin: auto;
-    color: rgb(219, 221, 220);
+    color: rgb(221, 224, 220);
     text-align: center;
+}
+/* player turn popup */
+#top_container{
+    position: relative;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    height: 5vh;
+}
+.turn{
+    position: absolute;
+    text-align: center;
+    left: 36%;
+}
+#red_turn{
+    left: 45%;
+    visibility: hidden;
+    color: rgb(197, 93, 93);
+    font-size: larger;
+}
+#yellow_turn{
+    left: 44%;
+    visibility: hidden;
+    color: rgb(220, 230, 104);
+    font-size: larger;
 }
 /* board */
 #board{
@@ -53,7 +64,6 @@ h1{
     top: 30vh;
     left: 39vw;
     border-radius: 5px;
-    background: #e8e2bd;
     box-shadow: 0 0 50px #4d535c;
 }
 h3{

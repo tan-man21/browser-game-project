@@ -19,13 +19,27 @@ async function selectPlayer(){
     let title = document.getElementById('title')
     gameBoard.style.opacity = 1
     await getCurrentPlayer()
-    console.log(currentPlayer)
-    await startContainer.remove()
+    startContainer.style.display = 'none';
     await title.remove()
     setUpGame()
 }
 
-function setUpGame() {
+async function turnDisplay(){
+    let redTurn = document.getElementById('red_turn');
+    let yellowTurn = document.getElementById('yellow_turn');
+
+    await getCurrentPlayer()
+
+    if(currentPlayer === playerRed){
+        redTurn.style.visibility = 'visible'
+        yellowTurn.style.visibility = 'hidden'
+    }else if(currentPlayer === playerYellow){
+        yellowTurn.style.visibility = 'visible'
+        redTurn.style.visibility = 'hidden'
+    }
+}
+
+async function setUpGame() {
     board = [];
     currentColumns = [5, 5, 5, 5, 5, 5, 5];
 
@@ -42,6 +56,8 @@ function setUpGame() {
         }
         board.push(row);
     }
+
+    turnDisplay()
 }
 
 //get current player
@@ -60,8 +76,18 @@ function getCurrentPlayer() {
 }
 //Iterating through each turn until winner is found
 function playerTurn(){
+    let redTurn = document.getElementById('red_turn');
+    let yellowTurn = document.getElementById('yellow_turn')
     if(gameOver){
         return;
+    }
+
+    if(currentPlayer === playerRed){
+        yellowTurn.style.visibility = 'visible'
+        redTurn.style.visibility = 'hidden'
+    }else if(currentPlayer === playerYellow){
+        redTurn.style.visibility = 'visible'
+        yellowTurn.style.visibility = 'hidden'
     }
 
     let coords = this.id.split('-');
@@ -94,10 +120,11 @@ function checkWinner(){
 }
 
 //clear board with restart button
-function clearBoard(){
+async function clearBoard(){
     let spots = document.getElementsByClassName('slot');
+    let startContainer = document.getElementById('start_container');
 
-    for(i = 0; spots.length; i++){
+    for(i = 0; i < spots.length; i++){
         let spot = spots[i]
 
         if(spot.classList.contains('yellow-piece')){
@@ -105,5 +132,8 @@ function clearBoard(){
         }else if(spot.classList.contains('red-piece')){
             spot.classList.remove('red-piece')
         }
-}
+    }
+    currentColumns = [5, 5, 5, 5, 5, 5, 5]
+
+    startContainer.style.display = 'flex';
 }
