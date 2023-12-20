@@ -26,8 +26,9 @@ async function selectPlayer(){
 }
 
 function setUpGame() {
-    board = []
-    currentColumns = [5, 5, 5, 5, 5, 5]
+    board = [];
+    currentColumns = [5, 5, 5, 5, 5, 5, 5];
+
     for(let r = 0; r < rows; r++){
         let row = [];
         for(let c = 0; c < columns; c++){
@@ -67,23 +68,42 @@ function playerTurn(){
     let r = parseInt(coords[0]);
     let c = parseInt(coords[1]);
 
-    r = currentColumns[c]
-    console.log(r)
+    r = currentColumns[c];
+    if(r < 0){
+        return;
+    }
 
     board[r][c] = currentPlayer;
     let slot = document.getElementById(r.toString() + '-' + c.toString());
     if(currentPlayer === playerYellow){
         slot.classList.add('yellow-piece')
-        return currentPlayer = playerRed
-    } 
-    if(currentPlayer === playerRed){
+        currentPlayer = playerRed
+    } else if(currentPlayer === playerRed){
         slot.classList.add('red-piece')
-        return currentPlayer = playerYellow
+        currentPlayer = playerYellow
     }
+
+    r -= 1;
+    currentColumns[c] = r;
 
     // checkWinner()
 }
 //Checking for winner function
-// function checkWinner(){
+function checkWinner(){
 
-// }
+}
+
+//clear board with restart button
+function clearBoard(){
+    let spots = document.getElementsByClassName('slot');
+
+    for(i = 0; spots.length; i++){
+        let spot = spots[i]
+
+        if(spot.classList.contains('yellow-piece')){
+            spot.classList.remove('yellow-piece')
+        }else if(spot.classList.contains('red-piece')){
+            spot.classList.remove('red-piece')
+        }
+}
+}
