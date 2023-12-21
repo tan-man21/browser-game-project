@@ -119,3 +119,8 @@ h3{
 .yellow-piece{
     background-color: rgb(220, 230, 104);
 }
+
+.slot:hover{
+    /* background-color: rgb(126, 123, 123); */
+    opacity: .5;
+}
