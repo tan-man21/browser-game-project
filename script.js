@@ -112,7 +112,7 @@ function playerTurn(){
     r -= 1;
     currentColumns[c] = r;
 
-    // checkWinner()
+    checkWinner()
 }
 //Checking for winner function
 function checkWinner(){
