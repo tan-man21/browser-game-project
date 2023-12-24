@@ -116,6 +116,7 @@ function playerTurn(){
 }
 //Checking for winner function
 function checkWinner(){
+    //check horizantally
     for(let r = 0; r < rows; r++){
         for(let c = 0; c < columns - 3; c++){
             if(board[r][c] != ' '){
@@ -126,10 +127,33 @@ function checkWinner(){
             }
         }
     };
+    //check vertically
+    for(let c = 0; c < columns; c++){
+        for(let r = 0; r < rows - 3; r++){
+            if(board[r][c] != ' '){
+                if(board[r][c] == board[r+1][c] && board[r+1][c] == board[r+2][c] && board[r+2][c] == board[r+3][c]){
+                    setWinner(r, c);
+                    return;
+                }
+            }
+        }
+    };
+    //check diagonally up and to right
     for(let r = 0; r < rows; r++){
         for(let c = 0; c < columns - 3; c++){
             if(board[r][c] != ' '){
-                if(board[r][c] == board[r+1][c] && board[r+1][c] == board[r+2][c] && board[r+2][c] == board[r+3][c]){
+                if(board[r][c] == board[r-1][c+1] && board[r-1][c+1] == board[r-2][c+2] && board[r-2][c+2] == board[r-3][c+3]){
+                    setWinner(r, c);
+                    return;
+                }
+            }
+        }
+    };
+    //check diagonally down and to right
+    for(let r = 0; r < rows; r++){
+        for(let c = 0; c < columns - 3; c++){
+            if(board[r][c] != ' '){
+                if(board[r][c] == board[r+1][c+1] && board[r+1][c+1] == board[r+2][c+2] && board[r+2][c+2] == board[r+3][c+3]){
                     setWinner(r, c);
                     return;
                 }
