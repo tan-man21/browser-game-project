@@ -1,13 +1,14 @@
 //Establish Rows and Columns
 let rows = 6;
 let columns = 7;
-let playerRed = 'R';
-let playerYellow = 'Y';
+let playerRed = 'Red';
+let playerYellow = 'Yellow';
 let currentPlayer = getCurrentPlayer();
 let currentColumns;
 
 let board;
 let gameOver = false;
+let restart = false;
 
 
 // window.onload = async () => {
@@ -20,8 +21,12 @@ async function selectPlayer(){
     gameBoard.style.opacity = 1
     await getCurrentPlayer()
     startContainer.style.display = 'none';
-    await title.remove()
-    setUpGame()
+    title.style.display = 'none';
+    
+    if(restart === false){
+        setUpGame();
+        restart = true;
+    }
 }
 
 async function turnDisplay(){
@@ -162,11 +167,27 @@ function checkWinner(){
     };
 }
 
+function createRedWinner(){
+    let popUp = document.createElement('div');
+    popUp.classList.add('popup');
+    popUp.id = 'red-popup';
+    popUp.textContent = 'Red Wins!'
+    document.body.append(popUp)
+}
+
+function createYellowWinner(){
+    let popUp = document.createElement('div');
+    popUp.classList.add('popup');
+    popUp.id = 'yellow-popup';
+    popUp.textContent = 'Yellow Wins'
+    document.body.append(popUp)
+}
+
 function setWinner(r, c){
     if(board[r][c] == playerRed){
-        alert('Red Player Wins!')
+        createRedWinner()
     }else{
-        alert('Yellow Player Wins!')
+        createYellowWinner()
     }
 
     gameOver = true;
@@ -176,6 +197,7 @@ function setWinner(r, c){
 async function clearBoard(){
     let spots = document.getElementsByClassName('slot');
     let startContainer = document.getElementById('start_container');
+    let title = document.getElementById('title');
 
     for(i = 0; i < spots.length; i++){
         let spot = spots[i]
@@ -186,7 +208,28 @@ async function clearBoard(){
             spot.classList.remove('red-piece')
         }
     }
-    currentColumns = [5, 5, 5, 5, 5, 5, 5]
+    currentColumns = [5, 5, 5, 5, 5, 5, 5];
+
+    let redTurn = document.getElementById('red_turn');
+    let yellowTurn = document.getElementById('yellow_turn');
+
+    if(currentPlayer === playerRed){
+        redTurn.style.visibility = 'hidden'
+    }else if(currentPlayer === playerYellow){
+        yellowTurn.style.visibility = 'hidden'
+    }
 
     startContainer.style.display = 'flex';
+    title.style.display = 'flex';
+
+    let redPopUp = document.getElementById('red-popup');
+    if(redPopUp){
+        redPopUp.remove();
+    }
+    let yellowPopUp = document.getElementById('yellow-popup')
+    if(yellowPopUp){
+        yellowPopUp.remove();
+    }
+
+    gameOver = false;
 }

@@ -124,3 +124,23 @@ h3{
     /* background-color: rgb(126, 123, 123); */
     opacity: .5;
 }
+
+.popup{
+    font-size: xx-large;
+    display: flex;
+    z-index: 1000;
+    position: relative;
+    font-weight: 600;
+    bottom: 500px;
+    width: 15%;
+    margin: auto;
+    justify-content: center;
+}
+
+#red-popup{
+    color: rgb(197, 93, 93);
+}
+
+#yellow-popup{
+    color: rgb(220, 230, 104);
+}
