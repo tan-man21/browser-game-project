@@ -94,11 +94,23 @@ h3{
 /* restart container */
 #restart_container{
     display: flex;
+    justify-content: space-evenly;
+    width: 630px;
+    margin: auto;
+    height: 50px;
 }
 #restartBtn{
     position: relative;
     margin: auto;
-    top: 25px;
+    top: 5px;
+}
+#redNum{
+    padding-left: 3px;
+    color: rgb(197, 93, 93);
+}
+#yellowNum{
+    padding-left: 3px;
+    color: rgb(220, 230, 104);
 }
 /* slots */
 .slot{

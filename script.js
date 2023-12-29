@@ -6,20 +6,24 @@ let playerYellow = 'Yellow';
 let currentPlayer = getCurrentPlayer();
 let currentColumns;
 
+let redCount = 0;
+let yellowCount = 0;
+
 let board;
 let gameOver = false;
 let restart = false;
 
 
-// window.onload = async () => {
-//     setUpGame()
-// }
+window.onload = async () => {
+    setWinCounter()
+}
 async function selectPlayer(){
     let gameBoard = document.getElementById('board')
     let startContainer = document.getElementById('start_container')
     let title = document.getElementById('title')
     gameBoard.style.opacity = 1
-    await getCurrentPlayer()
+    await getCurrentPlayer();
+
     startContainer.style.display = 'none';
     title.style.display = 'none';
     
@@ -121,6 +125,7 @@ function playerTurn(){
 }
 //Checking for winner function
 function checkWinner(){
+    console.log(board)
     //check horizantally
     for(let r = 0; r < rows; r++){
         for(let c = 0; c < columns - 3; c++){
@@ -183,11 +188,23 @@ function createYellowWinner(){
     document.body.append(popUp)
 }
 
+function setWinCounter(){
+    let redNumber = document.getElementById('redNum');
+    let yellowNumber = document.getElementById('yellowNum');
+
+    redNumber.innerHTML = redCount;
+    yellowNumber.innerHTML = yellowCount;
+}
+
 function setWinner(r, c){
     if(board[r][c] == playerRed){
-        createRedWinner()
+        createRedWinner();
+        redCount += 1;
+        setWinCounter();
     }else{
-        createYellowWinner()
+        createYellowWinner();
+        yellowCount += 1;
+        setWinCounter();
     }
 
     gameOver = true;
@@ -198,6 +215,8 @@ async function clearBoard(){
     let spots = document.getElementsByClassName('slot');
     let startContainer = document.getElementById('start_container');
     let title = document.getElementById('title');
+
+    // need to remove currentPlayer from each board[r][c]
 
     for(i = 0; i < spots.length; i++){
         let spot = spots[i]
