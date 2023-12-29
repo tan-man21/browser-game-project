@@ -3,7 +3,7 @@ let rows = 6;
 let columns = 7;
 let playerRed = 'Red';
 let playerYellow = 'Yellow';
-let currentPlayer = getCurrentPlayer();
+let currentPlayer;
 let currentColumns;
 
 let redCount = 0;
@@ -15,7 +15,8 @@ let restart = false;
 
 
 window.onload = async () => {
-    setWinCounter()
+    await setUpGame();
+    setWinCounter();
 }
 async function selectPlayer(){
     let gameBoard = document.getElementById('board')
@@ -27,9 +28,8 @@ async function selectPlayer(){
     startContainer.style.display = 'none';
     title.style.display = 'none';
     
-    if(restart === false){
+    if(restart === true){
         setUpGame();
-        restart = true;
     }
 }
 
@@ -82,6 +82,7 @@ function getCurrentPlayer() {
             }
         }
     }
+    return currentPlayer;
 }
 //Iterating through each turn until winner is found
 function playerTurn(){
@@ -217,8 +218,13 @@ async function clearBoard(){
     let title = document.getElementById('title');
 
     // need to remove currentPlayer from each board[r][c]
+    board = [];
 
-    for(i = 0; i < spots.length; i++){
+    while(spots.length > 0){
+        spots[0].parentNode.removeChild(spots[0]);
+    }
+
+    for(let i = 0; i < spots.length; i++){
         let spot = spots[i]
 
         if(spot.classList.contains('yellow-piece')){
@@ -251,4 +257,6 @@ async function clearBoard(){
     }
 
     gameOver = false;
+
+    restart = true;
 }
