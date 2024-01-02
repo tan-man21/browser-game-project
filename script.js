@@ -18,58 +18,7 @@ window.onload = async () => {
     await setUpGame();
     setWinCounter();
 }
-async function selectPlayer(){
-    let gameBoard = document.getElementById('board')
-    let startContainer = document.getElementById('start_container')
-    let title = document.getElementById('title')
-    gameBoard.style.opacity = 1
-    await getCurrentPlayer();
-
-    startContainer.style.display = 'none';
-    title.style.display = 'none';
-    
-    if(restart === true){
-        setUpGame();
-    }
-}
-
-async function turnDisplay(){
-    let redTurn = document.getElementById('red_turn');
-    let yellowTurn = document.getElementById('yellow_turn');
-
-    await getCurrentPlayer()
-
-    if(currentPlayer === playerRed){
-        redTurn.style.visibility = 'visible'
-        yellowTurn.style.visibility = 'hidden'
-    }else if(currentPlayer === playerYellow){
-        yellowTurn.style.visibility = 'visible'
-        redTurn.style.visibility = 'hidden'
-    }
-}
-
-async function setUpGame() {
-    board = [];
-    currentColumns = [5, 5, 5, 5, 5, 5, 5];
-
-    for(let r = 0; r < rows; r++){
-        let row = [];
-        for(let c = 0; c < columns; c++){
-            row.push(' ');
-
-            let slot = document.createElement('div');
-            slot.id = r.toString() + '-' + c.toString();
-            slot.classList.add('slot');
-            slot.addEventListener('click', playerTurn)
-            document.getElementById('board').append(slot)
-        }
-        board.push(row);
-    }
-
-    turnDisplay()
-}
-
-//get current player
+//function to get the current player at the start of a new game
 function getCurrentPlayer() {
     let ele = document.getElementsByName('playerSelection');
 
@@ -84,14 +33,70 @@ function getCurrentPlayer() {
     }
     return currentPlayer;
 }
+//this function makes sure that there is a player selected and gets the game board ready to play
+async function selectPlayer(){
+    let gameBoard = document.getElementById('board')
+    let startContainer = document.getElementById('start_container')
+    let title = document.getElementById('title')
+    gameBoard.style.opacity = 1
+    await getCurrentPlayer();
+
+    startContainer.style.display = 'none';
+    title.style.display = 'none';
+    
+    if(restart === true){
+        setUpGame();
+    }
+
+    if(currentPlayer === undefined){
+        alert('Please click Restart and select a color to start!')
+    }
+}
+//this functions waits for the selected player and switches between displaying whose turn it is
+async function turnDisplay(){
+    let redTurn = document.getElementById('red_turn');
+    let yellowTurn = document.getElementById('yellow_turn');
+
+    await getCurrentPlayer()
+
+    if(currentPlayer === playerRed){
+        redTurn.style.visibility = 'visible'
+        yellowTurn.style.visibility = 'hidden'
+    }else if(currentPlayer === playerYellow){
+        yellowTurn.style.visibility = 'visible'
+        redTurn.style.visibility = 'hidden'
+    }
+}
+//this sets the game board by creating 42 new divs
+async function setUpGame() {
+    board = [];
+    currentColumns = [5, 5, 5, 5, 5, 5, 5];
+
+    for(let r = 0; r < rows; r++){
+        let row = [];
+        for(let c = 0; c < columns; c++){
+            row.push(' ');
+
+            let slot = document.createElement('div');
+            slot.id = r.toString() + '-' + c.toString();
+            slot.classList.add('slot');
+            slot.addEventListener('click', playerTurn) //needed to make each div clickable
+            document.getElementById('board').append(slot)
+        }
+        board.push(row);
+    }
+
+    turnDisplay()
+}
 //Iterating through each turn until winner is found
 function playerTurn(){
     let redTurn = document.getElementById('red_turn');
     let yellowTurn = document.getElementById('yellow_turn')
+
     if(gameOver){
         return;
     }
-
+    //makes each player's turn be displayed
     if(currentPlayer === playerRed){
         yellowTurn.style.visibility = 'visible'
         redTurn.style.visibility = 'hidden'
@@ -100,6 +105,7 @@ function playerTurn(){
         yellowTurn.style.visibility = 'hidden'
     }
 
+    //needed to break down the id given to each div
     let coords = this.id.split('-');
     let r = parseInt(coords[0]);
     let c = parseInt(coords[1]);
@@ -126,7 +132,6 @@ function playerTurn(){
 }
 //Checking for winner function
 function checkWinner(){
-    console.log(board)
     //check horizantally
     for(let r = 0; r < rows; r++){
         for(let c = 0; c < columns - 3; c++){
@@ -260,3 +265,4 @@ async function clearBoard(){
 
     restart = true;
 }
+

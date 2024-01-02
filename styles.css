@@ -2,6 +2,7 @@ body{
     background-color: rgb(70, 71, 72);
     font-family: 'Poppins', sans-serif;
     padding: 8px;
+    margin: 0;
 }
 /* title */
 h1{
@@ -87,7 +88,7 @@ h3{
 }
 #startBtn{
     background-color: white;
-    border-radius: 16px;
+    border-radius: 50px;
     width: 100px;
     height: 50px;
 }
@@ -103,6 +104,9 @@ h3{
     position: relative;
     margin: auto;
     top: 5px;
+    height: 30px;
+    border-radius: 30px;
+    border: none;
 }
 #redNum{
     padding-left: 3px;
@@ -147,12 +151,16 @@ h3{
     width: 15%;
     margin: auto;
     justify-content: center;
+    background-color: rgb(70, 71, 72);
+    padding: 5px;
 }
 
 #red-popup{
     color: rgb(197, 93, 93);
+    border: 2px solid rgb(197, 93, 93);
 }
 
 #yellow-popup{
     color: rgb(220, 230, 104);
+    border: 2px solid rgb(220, 230, 104);
 }
