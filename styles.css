@@ -108,13 +108,21 @@ h3{
     border-radius: 30px;
     border: none;
 }
+#red-counter{
+    font-size: large;
+}
 #redNum{
     padding-left: 3px;
     color: rgb(197, 93, 93);
+    font-size: large;
+}
+#yellow-counter{
+    font-size: large;
 }
 #yellowNum{
     padding-left: 3px;
     color: rgb(220, 230, 104);
+    font-size: large;
 }
 /* slots */
 .slot{
@@ -136,9 +144,33 @@ h3{
     background-color: rgb(220, 230, 104);
 }
 
-.slot:hover{
-    /* background-color: rgb(126, 123, 123); */
-    opacity: .5;
+[id$='-0']:hover,
+[id$='-0']:hover ~ [id$='-0']{
+    border-color: rgba(88, 161, 233, 0.327)
+}
+[id$='-1']:hover,
+[id$='-1']:hover ~ [id$='-1']{
+    border-color: rgba(88, 161, 233, 0.327)
+}
+[id$='-2']:hover,
+[id$='-2']:hover ~ [id$='-2']{
+    border-color: rgba(88, 161, 233, 0.327)
+}
+[id$='-3']:hover,
+[id$='-3']:hover ~ [id$='-3']{
+    border-color: rgba(88, 161, 233, 0.327)
+}
+[id$='-4']:hover,
+[id$='-4']:hover ~ [id$='-4']{
+    border-color: rgba(88, 161, 233, 0.327)
+}
+[id$='-5']:hover,
+[id$='-5']:hover ~ [id$='-5']{
+    border-color: rgba(88, 161, 233, 0.327)
+}
+[id$='-6']:hover,
+[id$='-6']:hover ~ [id$='-6']{
+    border-color: rgba(88, 161, 233, 0.327)
 }
 
 .popup{
