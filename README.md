@@ -1,1 +1,2 @@
 # browser-game-project
+This game is Connect 4. You play the game just like the original you will click the column you wish to drop your game piece in and it will appear at the lowest possible slot. Turns will alternate and when four of the same color is reached either vertically, horizantally, or diagonally a winner will be selected. You can restart the game and keep track of score. Have Fun!
