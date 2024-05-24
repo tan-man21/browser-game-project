@@ -1,6 +1,7 @@
+
+
+/*# sourceMappingURL=style.css.map */
 body{
-    background-color: rgb(70, 71, 72);
-    font-family: 'Poppins', sans-serif;
     padding: 8px;
     margin: 0;
 }
@@ -27,13 +28,13 @@ h1{
 #red_turn{
     left: 45%;
     visibility: hidden;
-    color: rgb(197, 93, 93);
+    color: #c55d5d;
     font-size: larger;
 }
 #yellow_turn{
     left: 44%;
     visibility: hidden;
-    color: rgb(220, 230, 104);
+    color: #dce668;
     font-size: larger;
 }
 /* board */
@@ -134,43 +135,6 @@ h3{
     flex-wrap: wrap;
     background-color: rgb(70, 71, 72);
     border: 3px solid rgb(3, 3, 3);
-}
-
-/* player pieces */
-.red-piece{
-    background-color: rgb(197, 93, 93);
-}
-.yellow-piece{
-    background-color: rgb(220, 230, 104);
-}
-
-[id$='-0']:hover,
-[id$='-0']:hover ~ [id$='-0']{
-    border-color: rgba(88, 161, 233, 0.327)
-}
-[id$='-1']:hover,
-[id$='-1']:hover ~ [id$='-1']{
-    border-color: rgba(88, 161, 233, 0.327)
-}
-[id$='-2']:hover,
-[id$='-2']:hover ~ [id$='-2']{
-    border-color: rgba(88, 161, 233, 0.327)
-}
-[id$='-3']:hover,
-[id$='-3']:hover ~ [id$='-3']{
-    border-color: rgba(88, 161, 233, 0.327)
-}
-[id$='-4']:hover,
-[id$='-4']:hover ~ [id$='-4']{
-    border-color: rgba(88, 161, 233, 0.327)
-}
-[id$='-5']:hover,
-[id$='-5']:hover ~ [id$='-5']{
-    border-color: rgba(88, 161, 233, 0.327)
-}
-[id$='-6']:hover,
-[id$='-6']:hover ~ [id$='-6']{
-    border-color: rgba(88, 161, 233, 0.327)
 }
 
 .popup{

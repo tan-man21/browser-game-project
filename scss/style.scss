@@ -1,0 +1,22 @@
+@import 'hover-piece';
+
+// scss variables
+$background: #464748;
+$board: #252727;
+$board-border: #030303;
+$red-piece: #c55d5d;
+$yellow-piece: #dce668;
+$fonts: 'Poppins', sans-serif;
+
+body {
+    background-color: $background;
+    font-family: $fonts;
+}
+
+//player pieces
+.red-piece {
+    background-color: $red-piece;
+}
+.yellow-piece {
+    background-color: $yellow-piece;
+}

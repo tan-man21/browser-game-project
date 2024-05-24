@@ -1,0 +1,8 @@
+$border-color: rgba(88, 161, 233, 0.327);
+
+@for $i from 0 through 6 {
+  [id$='-#{$i}']:hover,
+  [id$='-#{$i}']:hover ~ [id$='-#{$i}'] {
+    border-color: $border-color;
+  }
+}

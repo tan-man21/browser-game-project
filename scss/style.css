@@ -1,0 +1,47 @@
+[id$="-0"]:hover,
+[id$="-0"]:hover ~ [id$="-0"] {
+  border-color: rgba(88, 161, 233, 0.327);
+}
+
+[id$="-1"]:hover,
+[id$="-1"]:hover ~ [id$="-1"] {
+  border-color: rgba(88, 161, 233, 0.327);
+}
+
+[id$="-2"]:hover,
+[id$="-2"]:hover ~ [id$="-2"] {
+  border-color: rgba(88, 161, 233, 0.327);
+}
+
+[id$="-3"]:hover,
+[id$="-3"]:hover ~ [id$="-3"] {
+  border-color: rgba(88, 161, 233, 0.327);
+}
+
+[id$="-4"]:hover,
+[id$="-4"]:hover ~ [id$="-4"] {
+  border-color: rgba(88, 161, 233, 0.327);
+}
+
+[id$="-5"]:hover,
+[id$="-5"]:hover ~ [id$="-5"] {
+  border-color: rgba(88, 161, 233, 0.327);
+}
+
+[id$="-6"]:hover,
+[id$="-6"]:hover ~ [id$="-6"] {
+  border-color: rgba(88, 161, 233, 0.327);
+}
+
+body {
+  background-color: #464748;
+  font-family: "Poppins", sans-serif;
+}
+
+.red-piece {
+  background-color: #c55d5d;
+}
+
+.yellow-piece {
+  background-color: #dce668;
+}/*# sourceMappingURL=style.css.map */
